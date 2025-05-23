@@ -8,9 +8,9 @@ public class Study_GameObject : MonoBehaviour
     // public Vector3 pos;
     // public Quaternion rot;
 
-    void Start()
+    void Awake()
     {
-        Debug.Log("생성되었습니다.");
+        // Debug.Log("생성되었습니다.");
         CreateAmongus();
 
         // Destroy(destroyObj, 3f); // 매개 변수로 들어간 게임오브젝트를 파괴. 3초 뒤에

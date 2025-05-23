@@ -14,9 +14,13 @@ public class Movement : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        Vector3 dir = new Vector3(h, 0, v);
-        Debug.Log($"현재 입력 : {dir}");
+        Vector3 dir = new Vector3(h, 0, v); // .normalized; 아래 두 줄 생략 가능
 
-        transform.position += dir * moveSpeed * Time.deltaTime;
+        Vector3 normalDir = dir.normalized; // 정규화 과정 ( 0 ~ 1 )
+        Debug.Log($"현재 입력 : {normalDir}");
+
+        transform.position += normalDir * moveSpeed * Time.deltaTime;
+
+        transform.LookAt(transform.position + normalDir);
     }
 }
